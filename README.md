@@ -1,0 +1,1 @@
+# JARDEM.kz
