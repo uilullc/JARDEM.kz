@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jardem Баспа - Байланыс</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Басты бет</a></li>
+                <li><a href="about.html">Біз туралы</a></li>
+                <li><a href="services.html">Қызметтер</a></li>
+                <li><a href="portfolio.html">Портфолио</a></li>
+                <li><a href="prices.html">Бағалар</a></li>
+                <li><a href="contact.html">Байланыс</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="contact">
+        <h1>Байланыс</h1>
+        <p>Бізбен байланысу үшін төмендегі форманы толтырыңыз:</p>
+        
+        <form id="contact-form">
+            <label for="name">Аты-жөні</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Хабарлама</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Жіберу</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Jardem Баспа</p>
+    </footer>
+
+    <!-- EmailJS -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+       emailjs.init("YOUR_USER_ID"); // EmailJS User ID
+
+       document.getElementById('contact-form').addEventListener('submit', function(event){
+          event.preventDefault();
+          emailjs.sendForm('YOUR_SERVICE_ID','YOUR_TEMPLATE_ID', this)
+             .then(function(){ alert("Хабарлама жіберілді!"); },
+                   function(error){ alert("Қате пайда болды: " + JSON.stringify(error)); });
+       });
+    </script>
+</body>
+</html>
